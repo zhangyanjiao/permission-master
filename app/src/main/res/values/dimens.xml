@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="permission_margin_24">24dp</dimen>
+    <dimen name="permission_margin_16">16dp</dimen>
+    <dimen name="permission_margin_10">10dp</dimen>
+    <dimen name="permission_margin_44">44dp</dimen>
+</resources>

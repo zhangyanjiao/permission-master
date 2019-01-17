@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="white">#ffffff</color>
+    <color name="tx_c">#4c4c4c</color>
+    <color name="permission_suggest">#66000000</color>
+    <color name="permission_guide_switch_trans_50">#66000000</color>
+    <color name="trans_100">#33000000</color>
+    <color name="gray_eb">#affba0</color>
+    <color name="blue">#ff00ff</color>
+    <color name="permission_guide_blue">#00ffaa</color>
+    <color name="permission_guide_switch">#ffaffa</color>
+</resources>

@@ -1,0 +1,63 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+    ext.kotlin_version = '1.2.70'
+    repositories {
+        google()
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.1.2'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+        maven { url "http://10.9.100.5:8088/artifactory/magic-repo/" }
+    }
+    configurations.all {
+        // check for updates every build --> hours/minutes/seconds
+        resolutionStrategy {
+            // cache dynamic versions for 10 minutes
+            cacheDynamicVersionsFor 0, 'seconds'
+            // don't cache changing modules at all
+            cacheChangingModulesFor 0, 'seconds'
+
+            eachDependency { DependencyResolveDetails details ->
+                def requested = details.requested
+                if (requested.group == 'com.android.support') {
+                    if (!requested.name.startsWith("multidex")) {
+                        details.useVersion project.SUPPORT_SDK_VERSION
+                    }
+                }
+            }
+        }
+    }
+    // build types import
+    ext.batchDependency = { groupId, artifactId, version ->
+        android.buildTypes.all { variant ->
+            def snapshot = variant.name.toLowerCase().contains("debug") ? "-SNAPSHOT" : "-SNAPSHOT"
+            println "groupId:" + groupId + " artifactId:" + artifactId + " version:" + version + " name:" + variant.name + " snapshot:" + snapshot
+            dependencies.add("${variant.name}Compile", "${groupId}:${artifactId}:${version}${snapshot}@aar", {
+                changing = true
+                transitive = true
+                exclude group: "${MAVEN_GROUP}"
+                exclude group: "${PLATFORM_GROUP}"
+            })
+        }
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
+
+ext {
+
+}

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="345dp"
+        android:layout_gravity="center_vertical"
+        android:gravity="center_vertical"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp">
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:background="@color/colorPrimary"
+            android:gravity="center"
+            android:text="引导"
+            android:textColor="@color/white" />
+
+        <RelativeLayout
+            android:id="@+id/rl_guide_1"
+            android:layout_width="match_parent"
+            android:layout_height="224dp"
+            android:layout_below="@+id/title"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/iv_bg"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@drawable/permission_guide_bg" />
+
+            <com.qihoo.security.permissionManager.anim.RippleAnimView
+                android:id="@+id/bt_item_select"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_marginTop="112dp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_guide_2"
+            android:layout_width="match_parent"
+            android:layout_height="224dp"
+            android:layout_below="@+id/title"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/iv_bg2"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:background="@color/colorAccent"
+                android:gravity="center_vertical"
+                android:text="开关" />
+
+            <com.qihoo.security.permissionManager.anim.SwitchAnimView
+                android:id="@+id/sa_switch"
+                android:layout_width="60dp"
+                android:layout_height="25dp"
+                android:layout_marginTop="15dp"
+                android:layout_alignParentRight="true"
+
+                />
+        </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/iv_hand"
+            android:layout_width="54dp"
+            android:layout_height="54dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="44dp"
+            android:src="@drawable/icon_hand" />
+
+        <TextView
+            android:id="@+id/bt_got_it"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="30dp"
+            android:background="@color/colorPrimary"
+            android:gravity="center"
+            android:text="Got it"
+            android:textColor="@color/white" />
+    </RelativeLayout>
+</FrameLayout>
